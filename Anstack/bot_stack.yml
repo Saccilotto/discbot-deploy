@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  bot:
+    image: jagrosh/musicbot:latest
+    environment:
+      - BOT_TOKEN=${DISCORD_BOT_TOKEN}
+      - OWNER_ID=${OWNER_ID}
+    volumes:
+      - discord-data:/data
+    networks:
+      - bot_network
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - bot_network
+
+volumes:
+  discord-data:
+
+networks:
+  bot_network:
+

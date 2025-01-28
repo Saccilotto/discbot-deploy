@@ -1,0 +1,28 @@
+---
+- name: Configure Discord Bot Environment
+  hosts: all
+  tasks:
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+
+    - name: Install Docker Compose
+      get_url:
+        url: https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)
+        dest: /usr/local/bin/docker-compose
+        mode: '0755'
+
+    - name: Initialize Docker Swarm
+      shell: docker swarm init
+
+    - name: Deploy Swarm Stack
+      copy:
+        src: ./docker-compose.yml
+        dest: /home/ubuntu/docker-compose.yml
+
+    - name: Start Stack
+      shell: docker stack deploy -c /home/ubuntu/docker-compose.yml bot_stack
+
+    - name: Configure OCI Object Storage
+      shell: aws s3api put-bucket-lifecycle-configuration --bucket discord-bot-logs --lifecycle-configuration file://lifecycle.json

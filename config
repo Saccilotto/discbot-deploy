@@ -1,0 +1,15 @@
+[DEFAULT]
+user = ocid1.user.oc1..aaaaaaaa7ooqveyaybaoi2makeug242fv72cwugdkom2ima4gz2ohbrvrq7q
+fingerprint = ab:3c:f9:4c:2f:cb:f8:fa:33:f0:4f:94:07:93:ff:f8
+tenancy = ocid1.tenancy.oc1..aaaaaaaalsmpyr4ndxzobprmjboc3kdvznebvhrpu7isy4ufq42ro5hbgkta
+region = us-ashburn-1
+key_file = /home/norokal/.oci/sacilotto.andre@gmail.com.pem
+
+
+
+[sacilotto.andre@gmail.com]
+user = ocid1.user.oc1..aaaaaaaa7ooqveyaybaoi2makeug242fv72cwugdkom2ima4gz2ohbrvrq7q
+tenancy=ocid1.tenancy.oc1..aaaaaaaalsmpyr4ndxzobprmjboc3kdvznebvhrpu7isy4ufq42ro5hbgkta
+fingerprint = ab:3c:f9:4c:2f:cb:f8:fa:33:f0:4f:94:07:93:ff:f8
+key_file = /home/norokal/.oci/sacilotto.andre@gmail.com.pem
+region=us-ashburn-1
